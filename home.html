@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Web Bricks creates thoughtful, high-performing websites for ambitious businesses." />
+    <title>
+      Web Bricks — Websites made to move business forward
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="logo-drop.png" />
+    <style>
+      :root {
+         --ink:#10231f;
+         --pine:#17453b;
+         --mist:#eef4ef;
+         --lime:#d8ff52;
+         --coral:#ff7c62;
+         --line:rgba(16,35,31,.16);
+      }
+      
+          * {
+         box-sizing:border-box;
+      }
+      
+          html {
+         scroll-behavior:smooth;
+      }
+      
+          body {
+         margin:0;
+         background:var(--mist);
+         color:var(--ink);
+         font-family:Manrope,Arial,sans-serif;
+      }
+      
+          a {
+         color:inherit;
+         text-decoration:none;
+      }
+      
+          .wrap {
+         width:min(1180px, calc(100% - 48px));
+         margin:auto;
+      }
+      
+          .eyebrow {
+         font:500 11px/1.2 "DM Mono",monospace;
+         letter-spacing:.12em;
+         text-transform:uppercase;
+      }
+      
+          .nav {
+         height:84px;
+         display:flex;
+         align-items:center;
+         justify-content:space-between;
+      }
+      
+          .brand {
+         font-size:20px;
+         font-weight:800;
+         letter-spacing:-.06em;
+         display:flex;
+         align-items:center;
+         gap:9px;
+      }
+      
+          .brand-mark {
+         width:22px;
+         height:22px;
+         background:var(--lime);
+         border-radius:50% 50% 50% 3px;
+         transform:rotate(-45deg);
+      }
+      
+          .nav-links {
+         display:flex;
+         gap:30px;
+         font-size:13px;
+         font-weight:700;
+      }
+      
+          .nav .button {
+         padding:11px 16px;
+      }
+      
+          .button {
+         display:inline-flex;
+         justify-content:center;
+         align-items:center;
+         gap:10px;
+         border:1px solid var(--ink);
+         background:var(--ink);
+         color:white;
+         padding:15px 21px;
+         font-size:13px;
+         font-weight:800;
+         border-radius:100px;
+         transition:transform .2s, background .2s;
+      }
+      
+          .button:hover {
+         transform:translateY(-3px);
+         background:var(--pine);
+      }
+      
+          .button.light {
+         background:transparent;
+         color:var(--ink);
+      }
+      
+          .button.light:hover {
+         background:white;
+      }
+      
+          .hero {
+         padding:68px 0 98px;
+         position:relative;
+         overflow:hidden;
+      }
+      
+          .hero-grid {
+         display:grid;
+         grid-template-columns:1.15fr .85fr;
+         gap:45px;
+         align-items:end;
+      }
+      
+          h1 {
+         font-size:clamp(51px,7vw,92px);
+         letter-spacing:-.08em;
+         line-height:.95;
+         margin:17px 0 29px;
+         max-width:800px;
+      }
+      
+          .hero h1 em {
+         color:var(--pine);
+         font-style:normal;
+         position:relative;
+         white-space:nowrap;
+      }
+      
+          .hero h1 em:after {
+         content:"";
+         height:10px;
+         background:var(--lime);
+         position:absolute;
+         bottom:3px;
+         left:0;
+         width:100%;
+         z-index:-1;
+         transform:skew(-12deg);
+      }
+      
+          .intro {
+         max-width:465px;
+         color:#38514b;
+         font-size:17px;
+         line-height:1.65;
+         margin:0 0 32px;
+      }
+      
+          .hero-actions {
+         display:flex;
+         gap:12px;
+         flex-wrap:wrap;
+      }
+      
+          .hero-art {
+         min-height:405px;
+         background:var(--pine);
+         border-radius:18px;
+         position:relative;
+         overflow:hidden;
+         padding:25px;
+      }
+      
+          .shape {
+         position:absolute;
+         border-radius:50%;
+      }
+      
+          .shape.one {
+         background:var(--lime);
+         width:280px;
+         height:280px;
+         right:-66px;
+         top:-83px;
+      }
+      
+          .shape.two {
+         background:var(--coral);
+         width:184px;
+         height:184px;
+         left:-54px;
+         bottom:-69px;
+      }
+      
+          .screen {
+         position:absolute;
+         inset:61px 30px 34px 55px;
+         background:#f7faf3;
+         border-radius:10px;
+         padding:17px;
+         box-shadow:0 22px 45px rgba(0,0,0,.18);
+         transform:rotate(5deg);
+      }
+      
+          .browser {
+         display:flex;
+         gap:4px;
+         margin-bottom:17px;
+      }
+      
+          .browser i {
+         width:7px;
+         height:7px;
+         border-radius:50%;
+         background:#bed0bf;
+      }
+      
+          .screen-line {
+         height:7px;
+         background:#d9e4d8;
+         border-radius:99px;
+         margin-bottom:9px;
+      }
+      
+          .screen-line.dark {
+         background:var(--pine);
+         width:45%;
+         height:15px;
+         margin:18px 0 16px;
+      }
+      
+          .screen-line.short {
+         width:68%;
+      }
+      
+          .mock-grid {
+         display:grid;
+         grid-template-columns:1fr 1fr;
+         gap:9px;
+         margin-top:18px;
+      }
+      
+          .mock-card {
+         height:90px;
+         border-radius:5px;
+         background:#d4ec8a;
+      }
+       .mock-card:last-child {
+         background:#f5ae9c;
+      }
+      
+          .art-tag {
+         position:absolute;
+         bottom:22px;
+         left:23px;
+         color:white;
+         z-index:2;
+      }
+          .art-tag .eyebrow {
+            color: var(--ink);
+      }
+      
+          .art-tag span {
+         display:block;
+         font-size:13px;
+         font-weight:800;
+         margin-top:5px;
+      }
+      
+          .trusted {
+         border-top:1px solid var(--line);
+         padding:21px 0;
+         display:flex;
+         align-items:center;
+         justify-content:space-between;
+         gap:30px;
+      }
+      
+          .trusted p {
+         margin:0;
+         font:500 10px/1.4 "DM Mono",monospace;
+         text-transform:uppercase;
+         letter-spacing:.08em;
+         color:#517068;
+      }
+      
+          .logos {
+         display:flex;
+         justify-content:space-between;
+         align-items:center;
+         flex:1;
+         color:#416158;
+         font-weight:800;
+         font-size:17px;
+         letter-spacing:-.07em;
+      }
+      
+          .logos span:nth-child(2) {
+         font-family:Georgia,serif;
+         font-style:italic;
+      }
+      .logos span:nth-child(3) {
+         letter-spacing:.08em;
+         font-size:14px;
+      }
+      .logos span:nth-child(4) {
+         font-family:Georgia,serif;
+      }
+      
+          .services {
+         background:var(--ink);
+         color:white;
+         padding:112px 0;
+      }
+      
+          .section-top {
+         display:flex;
+         justify-content:space-between;
+         align-items:end;
+         gap:30px;
+         margin-bottom:57px;
+      }
+      
+          h2 {
+         font-size:clamp(35px,5vw,61px);
+         line-height:1;
+         letter-spacing:-.075em;
+         margin:14px 0 0;
+         max-width:650px;
+      }
+      
+          .section-top p {
+         max-width:270px;
+         color:#b8c9bf;
+         line-height:1.6;
+         font-size:14px;
+         margin:0;
+      }
+      
+          .service-list {
+         border-top:1px solid rgba(255,255,255,.22);
+      }
+      
+          .service {
+         display:grid;
+         grid-template-columns:75px 1fr 1.2fr 30px;
+         align-items:center;
+         gap:24px;
+         padding:25px 7px;
+         border-bottom:1px solid rgba(255,255,255,.22);
+         transition:.2s;
+      }
+      
+          .service:hover {
+         background:#1d3833;
+         padding-left:18px;
+         padding-right:18px;
+      }
+      
+          .service-no {
+         font:500 11px "DM Mono",monospace;
+         color:var(--lime);
+      }
+      .service h3 {
+         margin:0;
+         font-size:22px;
+         letter-spacing:-.05em;
+      }
+      .service p {
+         margin:0;
+         color:#b8c9bf;
+         font-size:13px;
+         line-height:1.5;
+      }
+      .arrow {
+         font-size:24px;
+         color:var(--lime);
+      }
+      
+          .work {
+         padding:110px 0 117px;
+      }
+      .work .section-top {
+         margin-bottom:42px;
+      }
+      .work .eyebrow {
+         color:#4c6c62;
+      }
+      
+          .work-grid {
+         display:grid;
+         grid-template-columns:1.13fr .87fr;
+         gap:20px;
+      }
+      .project {
+         display:block;
+      }
+      .project-art {
+         height:360px;
+         border-radius:14px;
+         overflow:hidden;
+         position:relative;
+         padding:30px;
+      }
+      .project-art h3 {
+         margin:0;
+         position:relative;
+         z-index:1;
+         font-size:32px;
+         letter-spacing:-.07em;
+         max-width:250px;
+      }
+      .project-art p {
+         position:absolute;
+         bottom:23px;
+         left:30px;
+         margin:0;
+         z-index:1;
+         font:500 10px "DM Mono",monospace;
+         letter-spacing:.1em;
+         text-transform:uppercase;
+      }
+      .project-a {
+         background:#fa866c;
+      }
+      .project-a:after {
+         content:"";
+         position:absolute;
+         width:270px;
+         height:270px;
+         border-radius:50%;
+         border:35px solid var(--ink);
+         right:-44px;
+         bottom:-100px;
+      }
+      .project-b {
+         background:#b8e9dd;
+      }
+      .project-b:after {
+         content:"+";
+         font-size:250px;
+         line-height:.6;
+         color:#f7fbf4;
+         position:absolute;
+         right:-14px;
+         bottom:-25px;
+         font-family:Georgia,serif;
+      }
+      .project-info {
+         display:flex;
+         justify-content:space-between;
+         padding:16px 1px;
+         font-size:13px;
+         font-weight:800;
+      }
+      .project-info small {
+         font:500 10px "DM Mono",monospace;
+         color:#617d74;
+         text-transform:uppercase;
+      }
+      
+          .process {
+         background:#d6ef88;
+         padding:100px 0;
+      }
+      .process h2 {
+         max-width:575px;
+      }
+      .steps {
+         display:grid;
+         grid-template-columns:repeat(3,1fr);
+         gap:42px;
+         margin-top:65px;
+      }
+      .step {
+         border-top:1px solid rgba(16,35,31,.32);
+         padding-top:17px;
+      }
+      .step b {
+         display:block;
+         font:500 11px "DM Mono",monospace;
+         margin-bottom:50px;
+      }
+      .step h3 {
+         font-size:22px;
+         letter-spacing:-.05em;
+         margin:0 0 10px;
+      }
+      .step p {
+         font-size:13px;
+         line-height:1.6;
+         max-width:260px;
+         margin:0;
+         color:#355148;
+      }
+      
+          .cta {
+         padding:107px 0;
+         background:var(--coral);
+         text-align:center;
+      }
+      .cta h2 {
+         max-width:800px;
+         margin:17px auto 32px;
+      }
+      .cta .button {
+         background:var(--ink);
+      }
+      .cta .eyebrow {
+         color:#6e261d;
+      }
+      
+          footer {
+         background:var(--ink);
+         color:white;
+         padding:33px 0 39px;
+      }
+      .footer-top {
+         display:flex;
+         justify-content:space-between;
+         align-items:flex-end;
+      }
+      .footer-top .brand {
+         font-size:25px;
+      }
+      .footer-top p {
+         max-width:250px;
+         color:#b8c9bf;
+         font-size:12px;
+         line-height:1.5;
+         margin:0;
+      }
+      .footer-bottom {
+         border-top:1px solid rgba(255,255,255,.2);
+         margin-top:38px;
+         padding-top:18px;
+         display:flex;
+         justify-content:space-between;
+         color:#b8c9bf;
+         font:400 10px "DM Mono",monospace;
+      }
+      .footer-bottom a {
+         color:var(--lime);
+      }
+      
+          @media (max-width:750px) {
+         .wrap {
+          width:min(100% - 32px,1180px)
+        }
+        .nav-links {
+          display:none
+        }
+        .hero {
+          padding:38px 0 62px
+        }
+        .hero-grid,.work-grid {
+          grid-template-columns:1fr
+        }
+        .hero-art {
+          min-height:330px
+        }
+        .trusted {
+          display:block
+        }
+        .trusted p {
+          margin-bottom:17px
+        }
+        .logos {
+          gap:15px;
+          flex-wrap:wrap
+        }
+        .logos span {
+          min-width:27%
+        }
+        .services,.work,.process,.cta {
+          padding:72px 0
+        }
+        .section-top {
+          display:block;
+          margin-bottom:38px
+        }
+        .section-top p {
+          margin-top:20px
+        }
+        .service {
+          grid-template-columns:38px 1fr 18px;
+          gap:12px
+        }
+        .service p {
+          display:none
+        }
+        .steps {
+          grid-template-columns:1fr;
+          gap:32px;
+          margin-top:44px
+        }
+        .step b {
+          margin-bottom:17px
+        }
+        .footer-top {
+          display:block
+        }
+        .footer-top p {
+          margin-top:18px
+        }
+        .screen {
+          inset:55px 25px 30px 30px
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap nav">
+      <a class="brand" href="#top">
+        <i class="brand-mark">
+        </i>
+        web bricks
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">
+          Services
+        </a>
+        <a href="#work">
+          Work
+        </a>
+        <a href="#process">
+          Our process
+        </a>
+      </nav>
+      <a class="button" href="#contact">
+        Let’s talk
+        <span>
+          ↗
+        </span>
+      </a>
+    </header>
+    <main id="top">
+      <section class="hero wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">
+              Web design &amp; development / Est. 2026
+            </div>
+            <h1>
+              Websites with
+              <em>
+                real
+              </em>
+              momentum.
+            </h1>
+            <p class="intro">
+              We partner with restaurants to turn boring menus into unmistakable digital experiences.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#contact">
+                Start a project
+                <span>
+                  ↗
+                </span>
+              </a>
+              <a class="button light" href="gallery.html" target="_blank" rel="noopener noreferrer">
+                See our work
+              </a>
+            </div>
+          </div>
+          <div class="hero-art" aria-label="A stylized website preview">
+            <div class="shape one">
+            </div>
+            <div class="shape two">
+            </div>
+            <div class="screen">
+              <div class="browser">
+                <i>
+                </i>
+                <i>
+                </i>
+                <i>
+                </i>
+              </div>
+              <div class="screen-line dark">
+              </div>
+              <div class="screen-line">
+              </div>
+              <div class="screen-line short">
+              </div>
+              <div class="mock-grid">
+                <div class="mock-card">
+                </div>
+                <div class="mock-card">
+                </div>
+              </div>
+            </div>
+            <div class="art-tag">
+              <div class="eyebrow">
+                Built for better
+              </div>
+              <span>
+                Beautifully useful
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="services" id="services">
+        <div class="wrap">
+          <div class="section-top">
+            <div>
+              <div class="eyebrow">
+                What we do
+              </div>
+              <h2>
+                Everything your next great site needs.
+              </h2>
+            </div>
+            <p>
+              From the first sketch to the launch-day high five, we bring strategy, craft, and technical know-how into one close-knit team.
+            </p>
+          </div>
+          <div class="service-list">
+            <a class="service" href="#contact">
+              <span class="service-no">
+                01
+              </span>
+              <h3>
+                Strategy &amp; direction
+              </h3>
+              <p>
+                Clarify the big idea, audience, and path forward.
+              </p>
+              <span class="arrow">
+                ↗
+              </span>
+            </a>
+            <a class="service" href="#contact">
+              <span class="service-no">
+                02
+              </span>
+              <h3>
+                Brand &amp; web design
+              </h3>
+              <p>
+                Give your story a look and feel people remember.
+              </p>
+              <span class="arrow">
+                ↗
+              </span>
+            </a>
+            <a class="service" href="#contact">
+              <span class="service-no">
+                03
+              </span>
+              <h3>
+                Development
+              </h3>
+              <p>
+                Fast, flexible sites that work brilliantly everywhere.
+              </p>
+              <span class="arrow">
+                ↗
+              </span>
+            </a>
+            <a class="service" href="#contact">
+              <span class="service-no">
+                04
+              </span>
+              <h3>
+                Ongoing partnership
+              </h3>
+              <p>
+                Keep evolving with expert support after launch.
+              </p>
+              <span class="arrow">
+                ↗
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="work wrap" id="work">
+        <div class="section-top">
+          <div>
+            <div class="eyebrow">
+              Selected work
+            </div>
+            <h2>
+              Good work gets noticed.
+            </h2>
+          </div>
+          <a class="button light" href="gallery.html" target="_blank" rel="noopener noreferrer">
+            View all projects ↗
+          </a>
+        </div>
+        <div class="work-grid">
+          <a class="project" href="#contact">
+            <div class="project-art project-a">
+              <h3>
+                Reimagining local banking
+              </h3>
+              <p>
+                Digital experience
+              </p>
+            </div>
+            <div class="project-info">
+              <span>
+                Commonwealth
+              </span>
+              <small>
+                Web design · development
+              </small>
+            </div>
+          </a>
+          <a class="project" href="#contact">
+            <div class="project-art project-b">
+              <h3>
+                A brighter future for energy
+              </h3>
+              <p>
+                Sprout / Brand &amp; web
+              </p>
+            </div>
+            <div class="project-info">
+              <span>
+                Sprout Energy
+              </span>
+              <small>
+                Brand · web design
+              </small>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="process" id="process">
+        <div class="wrap">
+          <div class="eyebrow">
+            How we work
+          </div>
+          <h2>
+            A clear, collaborative road to launch.
+          </h2>
+          <div class="steps">
+            <div class="step">
+              <b>
+                01 / Listen
+              </b>
+              <h3>
+                Get to the good stuff
+              </h3>
+              <p>
+                We learn what makes your business tick and define what success should look like.
+              </p>
+            </div>
+            <div class="step">
+              <b>
+                02 / Make
+              </b>
+              <h3>
+                Shape the experience
+              </h3>
+              <p>
+                We explore, design, and build in the open—so you’re never left guessing.
+              </p>
+            </div>
+            <div class="step">
+              <b>
+                03 / Launch
+              </b>
+              <h3>
+                Put it to work
+              </h3>
+              <p>
+                We handle the details, then help you get more from your new digital home.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="cta" id="contact">
+        <div class="wrap">
+          <div class="eyebrow">
+            Have a project in mind?
+          </div>
+          <h2>
+            Let’s make your corner of the internet impossible to ignore.
+          </h2>
+          <a class="button" href="tell-us-about-it.html">
+            Tell us about it
+            <span>
+              ↗
+            </span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div class="footer-top">
+          <a class="brand" href="#top">
+            <i class="brand-mark">
+            </i>
+            web bricks
+          </a>
+          <p>
+            Thoughtful web design and development for people doing meaningful work.
+          </p>
+        </div>
+        <div class="footer-bottom">
+          <span>
+            2026 Web Bricks
+          </span>
+          <span>
+            <a href="tell-us-about-it.html">
+              contact@webbricks.org / 
+              (609) 865-1391
+            </a>
+            &nbsp; / &nbsp; New York, New Jersey + everywhere
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Juniper — a calm neighborhood kitchen for seasonal food and wine." />
+  <title>Juniper — A neighborhood kitchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="logo-drop.png" />
+  <style>
+    :root {
+      --paper: #f5f2e9;
+      --ink: #314238;
+      --sage: #aeb9a3;
+      --moss: #70806b;
+      --clay: #c79071;
+      --line: #d9d5ca;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: "Work Sans", Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: auto; }
+    .tiny { font: 500 10px/1.3 "DM Mono", monospace; text-transform: uppercase; letter-spacing: .12em; }
+
+    .announcement { background: var(--moss); color: var(--paper); text-align: center; padding: 9px; }
+    .announcement span { color: #e9e6dc; margin: 0 10px; }
+
+    .nav { min-height: 104px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .wordmark { font: 500 35px/.9 "Newsreader", Georgia, serif; letter-spacing: -.07em; }
+    .nav-links { display: flex; gap: 25px; font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; }
+    .reservation { border: 1px solid var(--moss); border-radius: 100px; color: var(--moss); padding: 10px 15px; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; transition: .2s; }
+    .reservation:hover { background: var(--moss); color: white; }
+
+    .hero { padding: 64px 0 72px; }
+    .hero-grid { display: grid; grid-template-columns: .94fr 1.06fr; gap: 65px; align-items: center; }
+    .hero h1 { font: 500 clamp(57px, 7.5vw, 104px)/.84 "Newsreader", Georgia, serif; letter-spacing: -.09em; margin: 20px 0 28px; }
+    .hero-copy p { max-width: 340px; font-size: 15px; line-height: 1.7; color: #56655a; }
+    .hero-copy .reservation { display: inline-block; margin-top: 15px; }
+
+    .still-life { min-height: 470px; position: relative; overflow: hidden; background: #dbe0d2; }
+    .sun { position: absolute; width: 260px; height: 260px; border-radius: 50%; background: #efc6a9; right: 8%; top: 56px; }
+    .table { position: absolute; width: 135%; height: 235px; background: #c99b7c; bottom: -117px; left: -18%; border-radius: 50% 50% 0 0; transform: rotate(-5deg); }
+    .plate { position: absolute; width: 210px; height: 210px; border-radius: 50%; right: 26%; bottom: 50px; background: #eee8dc; border: 9px solid #fbf9f2; box-shadow: 0 5px 13px rgba(61, 73, 58, .15); }
+    .plate::after { content: ""; position: absolute; inset: 31px; border: 2px solid #ad6f50; border-radius: 50%; border-top-color: #769060; border-left-color: #e2a66f; transform: rotate(-20deg); }
+    .leaf { position: absolute; width: 18px; height: 95px; border-radius: 100% 0 100% 0; background: #52664e; transform-origin: bottom center; }
+    .leaf-one { left: 19%; top: 96px; transform: rotate(-41deg); }
+    .leaf-two { left: 27%; top: 135px; transform: rotate(24deg); background: #758a6c; }
+    .leaf-three { left: 23%; top: 169px; transform: rotate(-9deg) scale(.85); background: #5c7258; }
+    .hero-caption { position: absolute; bottom: 23px; left: 25px; color: #fffdf7; }
+
+    .hours { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .hours .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .hours-item { min-height: 87px; padding: 23px 0; display: flex; flex-direction: column; justify-content: center; gap: 5px; border-right: 1px solid var(--line); }
+    .hours-item:last-child { border: 0; padding-left: 25px; }
+    .hours-item:not(:first-child) { padding-left: 25px; }
+    .hours-item b { font: 500 19px "Newsreader", Georgia, serif; letter-spacing: -.04em; }
+    .hours-item span { color: #6b786c; }
+
+    .story { padding: 126px 0; }
+    .story-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; }
+    .story h2, .menu h2, .visit h2 { font: 500 clamp(45px, 5.7vw, 76px)/.89 "Newsreader", Georgia, serif; letter-spacing: -.085em; margin: 17px 0 0; }
+    .story-copy { max-width: 530px; padding-top: 5px; }
+    .story-copy p { font-size: 17px; line-height: 1.75; margin: 0; }
+    .story-copy p + p { color: #637265; font-size: 14px; margin-top: 19px; }
+
+    .menu { background: #e3e7dc; padding: 100px 0 93px; }
+    .menu-top { display: flex; justify-content: space-between; align-items: end; gap: 35px; }
+    .menu-top p { max-width: 285px; margin: 0; color: #5d6d5e; line-height: 1.65; font-size: 13px; }
+    .menu-list { margin-top: 58px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 52px; }
+    .dish { padding: 19px 0; border-top: 1px solid rgba(49, 66, 56, .22); display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+    .dish:nth-last-child(-n+2) { border-bottom: 1px solid rgba(49, 66, 56, .22); }
+    .dish h3 { font: 500 22px "Newsreader", Georgia, serif; margin: 0; letter-spacing: -.045em; }
+    .dish p { margin: 5px 0 0; color: #667467; font-size: 12px; line-height: 1.5; }
+    .dish span { font: 500 11px "DM Mono", monospace; }
+    .menu-link { display: inline-block; margin-top: 36px; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 600; padding-bottom: 4px; }
+
+    .visit { padding: 115px 0; }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .visit-card { padding: 50px; background: var(--clay); min-height: 445px; display: flex; flex-direction: column; justify-content: space-between; }
+    .visit-card h2 { font-size: 66px; }
+    .address { font-size: 14px; line-height: 1.75; }
+    .address b { font-weight: 600; }
+    .wine-shelf { background: #536850; min-height: 445px; position: relative; overflow: hidden; }
+    .wine-shelf::before { content: ""; position: absolute; left: 14%; right: 14%; top: 27%; height: 3px; background: #dfe6d7; box-shadow: 0 104px #dfe6d7; opacity: .8; }
+    .bottle { position: absolute; width: 51px; height: 188px; bottom: 77px; border-radius: 10px 10px 5px 5px; background: #d59656; }
+    .bottle::before { content: ""; position: absolute; width: 20px; height: 46px; background: inherit; top: -38px; left: 15px; border-radius: 4px 4px 0 0; }
+    .bottle::after { content: ""; position: absolute; left: 0; right: 0; top: 69px; height: 49px; background: #f1e8d6; }
+    .bottle-one { left: 21%; background: #b76c4c; height: 176px; }
+    .bottle-two { left: 44%; background: #e2b75b; height: 209px; }
+    .bottle-three { left: 67%; background: #7d573b; height: 164px; }
+
+    footer { border-top: 1px solid var(--line); padding: 30px 0 37px; }
+    footer .wrap { display: flex; justify-content: space-between; color: #738073; }
+
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 32px, 1120px); }
+      .nav { min-height: 79px; }
+      .nav-links { display: none; }
+      .wordmark { font-size: 30px; }
+      .hero { padding: 45px 0 48px; }
+      .hero-grid, .story-grid, .visit-grid { grid-template-columns: 1fr; gap: 35px; }
+      .hero h1 { font-size: 69px; }
+      .still-life { min-height: 375px; }
+      .hours .wrap { grid-template-columns: 1fr; }
+      .hours-item, .hours-item:last-child, .hours-item:not(:first-child) { min-height: 69px; padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .hours-item:last-child { border-bottom: 0; }
+      .story, .visit { padding: 72px 0; }
+      .menu { padding: 70px 0; }
+      .menu-top { display: block; }
+      .menu-top p { margin-top: 21px; }
+      .menu-list { grid-template-columns: 1fr; margin-top: 38px; }
+      .dish:nth-last-child(2) { border-bottom: 0; }
+      .visit-card { min-height: 385px; padding: 34px; }
+      .wine-shelf { min-height: 360px; }
+      footer .wrap { display: block; }
+      footer span:last-child { display: block; margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement tiny">A little dinner never hurt anyone <span>·</span> Reservations open two weeks ahead</div>
+
+  <header class="wrap nav">
+    <a class="wordmark" href="#top">Juniper</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#story">Our kitchen</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="reservation" href="#visit">Reserve a table</a>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="tiny">Dinner, wine &amp; unhurried evenings</div>
+          <h1>A gentle<br>place to eat.</h1>
+          <p>A small neighborhood restaurant shaped by the seasons, the market, and the simple pleasure of a well-set table.</p>
+          <a class="reservation" href="#visit">Find a table</a>
+        </div>
+        <div class="still-life" aria-label="Abstract still life of a dinner table">
+          <i class="sun"></i><i class="table"></i><i class="plate"></i>
+          <i class="leaf leaf-one"></i><i class="leaf leaf-two"></i><i class="leaf leaf-three"></i>
+          <span class="hero-caption tiny">The table is set</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="hours">
+      <div class="wrap">
+        <div class="hours-item"><span class="tiny">Open</span><b>Wednesday–Sunday</b></div>
+        <div class="hours-item"><span class="tiny">Dinner</span><b>5:30–10pm</b></div>
+        <div class="hours-item"><span class="tiny">Find us</span><b>19 Willow Lane, Riverview</b></div>
+      </div>
+    </section>
+
+    <section class="story wrap" id="story">
+      <div class="story-grid">
+        <div><div class="tiny">A neighborhood kitchen</div><h2>Come as you are.</h2></div>
+        <div class="story-copy">
+          <p>Juniper is a restaurant for lingering. We cook food that feels familiar but never predictable, and choose wine with enough character to start a good conversation.</p>
+          <p>Our menu shifts often. Our welcome does not.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="wrap">
+        <div class="menu-top">
+          <div><div class="tiny">From the kitchen</div><h2>Right now.</h2></div>
+          <p>A short seasonal menu, made to share—or not. Please let us know about allergies when you reserve.</p>
+        </div>
+        <div class="menu-list">
+          <article class="dish"><div><h3>Whipped feta</h3><p>Summer beans, mint, grilled flatbread</p></div><span>14</span></article>
+          <article class="dish"><div><h3>Roast chicken</h3><p>Green garlic, braised greens, jus</p></div><span>29</span></article>
+          <article class="dish"><div><h3>Little gem salad</h3><p>Herbs, anchovy dressing, breadcrumbs</p></div><span>15</span></article>
+          <article class="dish"><div><h3>Market pasta</h3><p>Sweet corn, basil, pecorino</p></div><span>26</span></article>
+          <article class="dish"><div><h3>Grilled peaches</h3><p>Honey, ricotta, toasted almonds</p></div><span>12</span></article>
+          <article class="dish"><div><h3>Olive oil cake</h3><p>Crème fraîche, late-summer fruit</p></div><span>11</span></article>
+        </div>
+        <a class="menu-link" href="#visit">See the full menu ↗</a>
+      </div>
+    </section>
+
+    <section class="visit wrap" id="visit">
+      <div class="visit-grid">
+        <div class="visit-card">
+          <div><div class="tiny">Visit us</div><h2>Stay for<br>one more.</h2></div>
+          <div class="address"><b>19 Willow Lane<br>Riverview, NY 10010</b><br><br>Wednesday–Sunday<br>5:30pm–10pm<br><br>(999) 999-9999</div>
+        </div>
+        <div class="wine-shelf" aria-label="Abstract illustration of wine bottles">
+          <i class="bottle bottle-one"></i><i class="bottle bottle-two"></i><i class="bottle bottle-three"></i>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap tiny"><span>© 2025 Juniper Restaurant</span><span>hello@juniper.example · (999) 999-9999</span></div>
+  </footer>
+</body>
+</html>

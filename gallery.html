@@ -1,0 +1,309 @@
+<!-- Display Website Models Selection -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Website models — Web Bricks
+    </title>
+    <link rel="icon" type="image/x-icon" href="logo-drop.png" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap');
+      
+          :root {
+        --ink:#112622;
+        --green:#205b4c;
+        --cream:#f5f3ec;
+        --yellow:#f5e761
+      }
+      * {
+        box-sizing:border-box
+      }
+      body {
+        margin:0;
+        background:var(--cream);
+        color:var(--ink);
+        font-family:Manrope,Arial,sans-serif
+      }
+      a {
+        text-decoration:none;
+        color:inherit
+      }
+      .wrap {
+        width:min(1160px,calc(100% - 48px));
+        margin:auto
+      }
+      .nav {
+        height:88px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        border-bottom:1px solid #cdd5cd
+      }
+      .brand {
+        font-weight:800;
+        letter-spacing:-.06em;
+        font-size:20px
+      }
+      .tag {
+        font:11px 'DM Mono',monospace;
+        letter-spacing:.11em;
+        text-transform:uppercase;
+        color:#537069
+      }
+      main {
+        padding:82px 0 105px
+      }
+      .intro {
+        display:grid;
+        grid-template-columns:1.3fr .7fr;
+        gap:30px;
+        margin-bottom:62px
+      }
+      h1 {
+        font-size:clamp(47px,7vw,82px);
+        line-height:.96;
+        letter-spacing:-.085em;
+        margin:13px 0 0
+      }
+      .intro p {
+        align-self:end;
+        line-height:1.7;
+        color:#49645d;
+        max-width:340px
+      }
+      .cards {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:20px
+      }
+      .card {
+        border-radius:16px;
+        overflow:hidden;
+        background:white;
+        box-shadow:0 14px 40px #173d3210;
+        transition:transform .25s,box-shadow .25s
+      }
+      .card:hover {
+        transform:translateY(-7px);
+        box-shadow:0 19px 48px #173d3225
+      }
+      .preview {
+        height:310px;
+        padding:24px;
+        position:relative;
+        overflow:hidden
+      }
+      .card:first-child .preview {
+        background:#123a5b;
+        color:#fff
+      }
+      .card:last-child .preview {
+        background:#d8704e;
+        color:#301d17
+      }
+      .mini-nav {
+        display:flex;
+        justify-content:space-between;
+        font-size:10px;
+        font-weight:800
+      }
+      .mini-hero {
+        position:absolute;
+        left:24px;
+        bottom:24px;
+        font-size:42px;
+        letter-spacing:-.08em;
+        line-height:.92;
+        max-width:260px
+      }
+      .snow {
+        position:absolute;
+        width:330px;
+        height:330px;
+        border:42px solid #92d4e3;
+        border-radius:50%;
+        right:-105px;
+        bottom:-168px;
+        opacity:.8
+      }
+      .steam {
+        position:absolute;
+        right:72px;
+        bottom:44px;
+        width:72px;
+        height:170px;
+        border:12px solid #ffcf98;
+        border-bottom:0;
+        border-radius:80% 80% 0 0;
+        transform:rotate(13deg)
+      }
+      .steam:after,.steam:before {
+        content:'';
+        position:absolute;
+        width:13px;
+        height:75px;
+        border-radius:99px;
+        background:#ffcf98;
+        top:-53px
+      }
+      .steam:before {
+        left:25px;
+        transform:rotate(15deg)
+      }
+      .steam:after {
+        left:52px;
+        top:-27px;
+        transform:rotate(31deg)
+      }
+      .card-copy {
+        padding:24px 25px 26px
+      }
+      .card-copy small {
+        font:11px 'DM Mono',monospace;
+        color:#57736a;
+        text-transform:uppercase;
+        letter-spacing:.1em
+      }
+      .card-copy h2 {
+        font-size:24px;
+        letter-spacing:-.06em;
+        margin:8px 0
+      }
+      .card-copy p {
+        font-size:13px;
+        line-height:1.55;
+        color:#57736a;
+        margin:0 0 18px
+      }
+      .open {
+        font-size:13px;
+        font-weight:800
+      }
+      .open span {
+        color:#1d8067;
+        font-size:18px;
+        margin-left:4px
+      }
+      @media(max-width:650px) {
+        .wrap {
+          width:min(100% - 32px,1160px)
+        }
+        .intro,.cards {
+          grid-template-columns:1fr
+        }
+        .intro {
+          gap:15px;
+          margin-bottom:40px
+        }
+        main {
+          padding:50px 0 65px
+        }
+        .preview {
+          height:270px
+        }
+      }
+    </style>
+  </head>
+  <!-- Webpage Layout -->
+  <body>
+    <header class="wrap nav">
+      <a class="brand" href="home.html">
+        web bricks
+      </a>
+      <span class="tag">
+        Website model gallery
+      </span>
+    </header>
+    <main class="wrap">
+      <section class="intro">
+        <div>
+          <div class="tag">
+            Pick a starting point
+          </div>
+          <h1>
+            Made for the people who keep a town moving.
+          </h1>
+        </div>
+        <p>
+          Two complete website directions designed around the way local businesses actually earn trust, win bookings, and welcome regulars.
+        </p>
+      </section>
+      <section class="cards">
+        <a class="card" href="model1.html" target="_blank" rel="noopener noreferrer">
+          <div class="preview">
+            <div class="mini-nav">
+              <span>
+                SUMMIT AIR
+              </span>
+              <span>
+                24/7 SERVICE
+              </span>
+            </div>
+            <div class="mini-hero">
+              Cool air.
+              <br>
+              Right now.
+            </div>
+            <i class="snow">
+            </i>
+          </div>
+          <div class="card-copy">
+            <small>
+              Model 01 / Home services
+            </small>
+            <h2>
+              Air conditioning repair
+            </h2>
+            <p>
+              A direct, conversion-focused site for a fast, dependable HVAC business.
+            </p>
+            <span class="open">
+              Explore model
+              <span>
+                ↗
+              </span>
+            </span>
+          </div>
+        </a>
+        <a class="card" href="model2.html" target="_blank" rel="noopener noreferrer">
+          <div class="preview">
+            <div class="mini-nav">
+              <span>
+                MARIGOLD
+              </span>
+              <span>
+                DINNER · DRINKS
+              </span>
+            </div>
+            <div class="mini-hero">
+              Come hungry.
+              <br>
+              Stay awhile.
+            </div>
+            <i class="steam">
+            </i>
+          </div>
+          <div class="card-copy">
+            <small>
+              Model 02 / Hospitality
+            </small>
+            <h2>
+              Neighborhood restaurant
+            </h2>
+            <p>
+              A warm, appetite-making home for a small restaurant with soul.
+            </p>
+            <span class="open">
+              Explore model
+              <span>
+                ↗
+              </span>
+            </span>
+          </div>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>

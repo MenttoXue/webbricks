@@ -1,0 +1,548 @@
+<!-- Restaurant Model Website (Marigold) -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Marigold — Dinner and drinks
+    </title>
+    <link rel="icon" type="image/x-icon" href="logo-drop.png" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+      
+          :root {
+        --ink:#31221e;
+        --brick:#a84936;
+        --peach:#f6d1b3;
+        --cream:#f8f3e9;
+        --gold:#d58e35
+      }
+      * {
+        box-sizing:border-box
+      }
+      html {
+        scroll-behavior:smooth
+      }
+      body {
+        margin:0;
+        color:var(--ink);
+        background:var(--cream);
+        font-family:'DM Sans',Arial,sans-serif
+      }
+      a {
+        text-decoration:none;
+        color:inherit
+      }
+      .wrap {
+        width:min(1160px,calc(100% - 48px));
+        margin:auto
+      }
+      .nav {
+        height:95px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        border-bottom:1px solid #d6cabb
+      }
+      .wordmark {
+        font:600 30px/1 'Playfair Display',Georgia,serif;
+        letter-spacing:-.05em
+      }
+      .nav-links {
+        display:flex;
+        gap:30px;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:.06em;
+        text-transform:uppercase
+      }
+      .reserve {
+        background:var(--brick);
+        color:#fff;
+        border-radius:50px;
+        padding:12px 17px;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:.04em
+      }
+      .hero {
+        padding:38px 0 35px
+      }
+      .hero-frame {
+        background:var(--peach);
+        min-height:540px;
+        position:relative;
+        overflow:hidden;
+        padding:65px
+      }
+      .location {
+        font:11px 'DM Mono',monospace;
+        letter-spacing:.1em;
+        text-transform:uppercase
+      }
+      .hero h1 {
+        font:600 clamp(64px,9vw,120px)/.84 'Playfair Display',Georgia,serif;
+        letter-spacing:-.085em;
+        max-width:700px;
+        margin:24px 0;
+        position:relative;
+        z-index:1
+      }
+      .hero p {
+        font-size:15px;
+        line-height:1.55;
+        max-width:330px;
+        position:relative;
+        z-index:1
+      }
+      .plate {
+        position:absolute;
+        width:455px;
+        height:455px;
+        border-radius:50%;
+        background:#e6b06a;
+        border:34px solid #fff6e4;
+        right:8%;
+        bottom:-128px;
+        box-shadow:0 0 0 6px #d9994b,0 20px 28px #76502c36
+      }
+      .plate:before {
+        content:"";
+        position:absolute;
+        inset:69px;
+        border-radius:50%;
+        border:33px solid #9d3e29;
+        border-top-color:#f7cf69;
+        border-right-color:#7b9a47;
+        transform:rotate(-38deg)
+      }
+      .plate:after {
+        content:'✦';
+        position:absolute;
+        font:100px Georgia,serif;
+        color:#f8e9c8;
+        left:144px;
+        top:122px
+      }
+      .details {
+        background:var(--brick);
+        color:#fff;
+        padding:21px 0
+      }
+      .details .wrap {
+        display:flex;
+        justify-content:space-between;
+        font:11px 'DM Mono',monospace;
+        letter-spacing:.04em
+      }
+      .intro {
+        display:grid;
+        grid-template-columns:.75fr 1.25fr;
+        gap:70px;
+        padding:110px 0;
+        align-items:start
+      }
+      .tiny {
+        font:11px 'DM Mono',monospace;
+        text-transform:uppercase;
+        letter-spacing:.1em;
+        color:#936856
+      }
+      .intro h2,.menu h2,.visit h2 {
+        font:600 clamp(46px,6vw,72px)/.95 'Playfair Display',Georgia,serif;
+        letter-spacing:-.07em;
+        margin:15px 0
+      }
+      .intro p {
+        font-size:17px;
+        line-height:1.7;
+        max-width:550px
+      }
+      .intro em {
+        font-family:'Playfair Display',Georgia,serif;
+        color:var(--brick)
+      }
+      .menu {
+        background:#ebe1cf;
+        padding:95px 0
+      }
+      .menu-head {
+        display:flex;
+        justify-content:space-between;
+        align-items:end
+      }
+      .menu-head p {
+        max-width:260px;
+        font-size:13px;
+        line-height:1.6
+      }
+      .menu-grid {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:45px;
+        margin-top:42px
+      }
+      .menu-column {
+        border-top:1px solid #ad9b85
+      }
+      .dish {
+        padding:18px 0;
+        border-bottom:1px solid #b9a993;
+        display:grid;
+        grid-template-columns:1fr auto;
+        gap:10px
+      }
+      .dish b {
+        font:600 20px 'Playfair Display',Georgia,serif;
+        letter-spacing:-.04em
+      }
+      .dish p {
+        font-size:12px;
+        line-height:1.5;
+        margin:5px 0 0;
+        color:#765c52
+      }
+      .dish span {
+        font:12px 'DM Mono',monospace
+      }
+      .visit {
+        padding:103px 0
+      }
+      .visit-grid {
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:20px
+      }
+      .hours {
+        background:var(--gold);
+        padding:45px
+      }
+      .hours h2 {
+        font-size:57px
+      }
+      .hours p {
+        line-height:1.8;
+        font-size:14px
+      }
+      .image-art {
+        background:#567348;
+        min-height:400px;
+        position:relative;
+        overflow:hidden
+      }
+      .image-art:before {
+        content:'';
+        position:absolute;
+        background:#ffe7a4;
+        width:300px;
+        height:300px;
+        border-radius:50%;
+        bottom:-50px;
+        left:-38px
+      }
+      .image-art:after {
+        content:'M';
+        color:#f8eee1;
+        position:absolute;
+        font:italic 290px/1 'Playfair Display',Georgia,serif;
+        right:12px;
+        bottom:-48px
+      }
+      .footer {
+        background:var(--ink);
+        color:#f6e7d2;
+        padding:55px 0
+      }
+      .footer .wrap {
+        display:flex;
+        align-items:flex-end;
+        justify-content:space-between
+      }
+      .footer .wordmark {
+        font-size:40px
+      }
+      .footer p {
+        font-size:12px;
+        line-height:1.7;
+        text-align:right;
+        color:#d2bcaa
+      }
+      @media(max-width:720px) {
+        .wrap {
+          width:min(100% - 32px,1160px)
+        }
+        .nav {
+          height:75px
+        }
+        .nav-links {
+          display:none
+        }
+        .hero {
+          padding:18px 0
+        }
+        .hero-frame {
+          min-height:530px;
+          padding:44px 27px
+        }
+        .hero h1 {
+          font-size:67px
+        }
+        .plate {
+          transform:scale(.65);
+          transform-origin:right bottom;
+          right:-102px
+        }
+        .details .wrap {
+          gap:12px;
+          font-size:9px
+        }
+        .details span:last-child {
+          display:none
+        }
+        .intro,.visit-grid {
+          grid-template-columns:1fr;
+          gap:35px;
+          padding:68px 0
+        }
+        .menu {
+          padding:65px 0
+        }
+        .menu-head {
+          display:block
+        }
+        .menu-grid {
+          grid-template-columns:1fr;
+          gap:0
+        }
+        .footer .wrap {
+          display:block
+        }
+        .footer p {
+          text-align:left
+        }
+        .reserve {
+          padding:10px 12px;
+          font-size:10px
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="wrap nav">
+      <a class="wordmark" href="gallery.html">
+        Marigold (Model Website)
+      </a>
+      <div class="nav-links">
+        <a href="#menu">
+          Menu
+        </a>
+        <a href="#story">
+          Our story
+        </a>
+        <a href="#visit">
+          Visit
+        </a>
+      </div>
+      <a class="reserve" href="#visit">
+        Reserve a table
+      </a>
+    </nav>
+    <main>
+      <section class="hero wrap">
+        <div class="hero-frame">
+          <div class="location">
+            Nassau Street · Princeton
+          </div>
+          <h1>
+            Come hungry.
+            <br>
+            Stay a while.
+          </h1>
+          <p>
+            Seasonal plates, generous pours, and a table that always feels like yours.
+          </p>
+          <i class="plate">
+          </i>
+        </div>
+      </section>
+      <section class="details">
+        <div class="wrap">
+          <span>
+            Wednesday–Sunday · 5–10pm
+          </span>
+          <span>
+            000 Nassau Street, Princeton
+          </span>
+          <span>
+            (999) 999-9999
+          </span>
+        </div>
+      </section>
+      <section class="intro wrap" id="story">
+        <div>
+          <div class="tiny">
+            A neighborhood table
+          </div>
+        </div>
+        <div>
+          <h2>
+            Good food is
+            <br>
+            <em>
+              always
+            </em>
+            a good idea.
+          </h2>
+          <p>
+            Marigold is a small restaurant with a big soft spot for the meals that make a night. We cook with what looks best at the market, pour things we love to drink, and leave enough room for dessert.
+          </p>
+        </div>
+      </section>
+      <section class="menu" id="menu">
+        <div class="wrap">
+          <div class="menu-head">
+            <div>
+              <div class="tiny">
+                A few favorites
+              </div>
+              <h2>
+                Tonight’s table
+              </h2>
+            </div>
+            <p>
+              The menu changes with the seasons. Here’s a taste of what’s cooking this week.
+            </p>
+          </div>
+          <div class="menu-grid">
+            <div class="menu-column">
+              <article class="dish">
+                <div>
+                  <b>
+                    Whipped ricotta
+                  </b>
+                  <p>
+                    Grilled sourdough, peas, mint, lemon
+                  </p>
+                </div>
+                <span>
+                  14
+                </span>
+              </article>
+              <article class="dish">
+                <div>
+                  <b>
+                    Little gem salad
+                  </b>
+                  <p>
+                    Herbs, anchovy dressing, breadcrumbs
+                  </p>
+                </div>
+                <span>
+                  16
+                </span>
+              </article>
+              <article class="dish">
+                <div>
+                  <b>
+                    Charred octopus
+                  </b>
+                  <p>
+                    Chickpeas, paprika, preserved lemon
+                  </p>
+                </div>
+                <span>
+                  21
+                </span>
+              </article>
+            </div>
+            <div class="menu-column">
+              <article class="dish">
+                <div>
+                  <b>
+                    Roast chicken for two
+                  </b>
+                  <p>
+                    Pan juices, potatoes, bitter greens
+                  </p>
+                </div>
+                <span>
+                  56
+                </span>
+              </article>
+              <article class="dish">
+                <div>
+                  <b>
+                    Hand-cut pappardelle
+                  </b>
+                  <p>
+                    Summer mushrooms, pecorino, black pepper
+                  </p>
+                </div>
+                <span>
+                  28
+                </span>
+              </article>
+              <article class="dish">
+                <div>
+                  <b>
+                    Olive oil cake
+                  </b>
+                  <p>
+                    Stone fruit, crème fraîche
+                  </p>
+                </div>
+                <span>
+                  12
+                </span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="visit wrap" id="visit">
+        <div class="visit-grid">
+          <div class="hours">
+            <div class="tiny">
+              Find us
+            </div>
+            <h2>
+              Pull up
+              <br>
+              a chair.
+            </h2>
+            <p>
+              <b>
+                26 Little Market Street
+                <br>
+                Princeton, NJ 08540
+              </b>
+            </p>
+            <p>
+              Wednesday–Sunday
+              <br>
+              5pm–10pm
+            </p>
+            <a class="reserve" href="tel:9999999999">
+              Call for a table
+            </a>
+          </div>
+          <div class="image-art">
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <a class="wordmark" href="gallery.html">
+          Marigold
+        </a>
+        <p>
+          000 Nassau Street, Princeton
+          <br>
+          (999) 999-9999 · hello@marigold.example
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
