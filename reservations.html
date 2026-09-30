@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservations — Villa Toscana</title>
+  <meta name="description" content="Reserve a table at Villa Toscana. Select your preferred date, time, and party size.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="model3.html" class="logo">Villa Toscana</a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <a href="model3.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="reservations.html" class="nav-cta active">Reserve</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h1>Reservations</h1>
+          <p>We recommend booking in advance, particularly for weekends and larger parties. Please complete the form below and we will confirm your reservation by email.</p>
+        </div>
+
+        <div class="form-layout">
+          <div class="info-block">
+            <h3>Dining Hours</h3>
+            <p>Tuesday – Sunday<br>17:00 – 22:30</p>
+            <p style="margin-top: 1.5rem;">Last seating is typically 21:00. For parties of eight or more, or for private dining inquiries, please contact us directly by telephone or email.</p>
+            <p style="margin-top: 1.5rem;"><strong>Telephone</strong><br><a href="tel:+15550123456">+1 (555) 012-3456</a></p>
+            <p style="margin-top: 1rem;"><strong>Email</strong><br><a href="mailto:reservations@villatoscana.example">reservations@villatoscana.example</a></p>
+          </div>
+
+          <form class="reservation-form" action="#" method="post">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+              <div class="form-group">
+                <label for="time">Preferred Time</label>
+                <select id="time" name="time" required>
+                  <option value="">Select time</option>
+                  <option value="17:00">17:00</option>
+                  <option value="17:30">17:30</option>
+                  <option value="18:00">18:00</option>
+                  <option value="18:30">18:30</option>
+                  <option value="19:00">19:00</option>
+                  <option value="19:30">19:30</option>
+                  <option value="20:00">20:00</option>
+                  <option value="20:30">20:30</option>
+                  <option value="21:00">21:00</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="guests">Number of Guests</label>
+              <select id="guests" name="guests" required>
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8+</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-name">Full Name</label>
+                <input type="text" id="res-name" name="name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="res-phone">Phone</label>
+                <input type="tel" id="res-phone" name="phone" required autocomplete="tel">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="res-email">Email</label>
+              <input type="email" id="res-email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="notes">Special Requests or Dietary Notes</label>
+              <textarea id="notes" name="notes" placeholder="Allergies, celebrations, accessibility needs…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Request Reservation</button>
+            <p class="form-note">This is a demonstration form. In a production environment, your request would be sent to the restaurant for confirmation.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">Villa Toscana</p>
+          <p>Refined Italian and Mediterranean cuisine in an elegant setting.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="menu.html">Menu</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="reservations.html">Reservations</a>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>18 Via del Sole</p>
+          <p>Florence District</p>
+          <p>Tue – Sun · 17:00 – 22:30</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Villa Toscana. Model website for demonstration purposes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
