@@ -1,350 +1,496 @@
-<!-- Display Website Models Selection -->
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Website models — Web Bricks
-    </title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Website models — Web Bricks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Manrope:wght@400;500;600;700;800&display=swap');
-      
-          :root {
-        --ink:#112622;
-        --green:#205b4c;
-        --cream:#f5f3ec;
-        --yellow:#f5e761
-      }
-      * {
-        box-sizing:border-box
-      }
-      body {
-        margin:0;
-        background:var(--cream);
-        color:var(--ink);
-        font-family:Manrope,Arial,sans-serif
-      }
-      a {
-        text-decoration:none;
-        color:inherit
-      }
-      .wrap {
-        width:min(1160px,calc(100% - 48px));
-        margin:auto
-      }
-      .nav {
-        height:88px;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        border-bottom:1px solid #cdd5cd
-      }
-      .brand {
-        font-weight:800;
-        letter-spacing:-.06em;
-        font-size:20px
-      }
-      .tag {
-        font:11px 'DM Mono',monospace;
-        letter-spacing:.11em;
-        text-transform:uppercase;
-        color:#537069
-      }
-      main {
-        padding:82px 0 105px
-      }
-      .intro {
-        display:grid;
-        grid-template-columns:1.3fr .7fr;
-        gap:30px;
-        margin-bottom:62px
-      }
-      h1 {
-        font-size:clamp(47px,7vw,82px);
-        line-height:.96;
-        letter-spacing:-.085em;
-        margin:13px 0 0
-      }
-      .intro p {
-        align-self:end;
-        line-height:1.7;
-        color:#49645d;
-        max-width:340px
-      }
-      .cards {
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:20px
-      }
-      .card {
-        border-radius:16px;
-        overflow:hidden;
-        background:white;
-        box-shadow:0 14px 40px #173d3210;
-        transition:transform .25s,box-shadow .25s
-      }
-      .card:hover {
-        transform:translateY(-7px);
-        box-shadow:0 19px 48px #173d3225
-      }
-      .preview {
-        height:310px;
-        padding:24px;
-        position:relative;
-        overflow:hidden
-      }
-      .card:first-child .preview {
-        background:#123a5b;
-        color:#fff
-      }
-      .card:last-child .preview {
-        background: linear-gradient(135deg, #EFEBE5 0%, #F9F7F4 50%, #E8E2D9 100%);
-        color:#301d17
-      }
-      .mini-nav {
-        display:flex;
-        justify-content:space-between;
-        font-size:10px;
-        font-weight:800
-      }
-      .mini-hero {
-        position:absolute;
-        left:24px;
-        bottom:24px;
-        font-size:42px;
-        letter-spacing:-.08em;
-        line-height:.92;
-        max-width:260px
-      }
-      .snow {
-        position:absolute;
-        width:330px;
-        height:330px;
-        border:42px solid #92d4e3;
-        border-radius:50%;
-        right:-105px;
-        bottom:-168px;
-        opacity:.8
-      }
-      .steam {
-        position:absolute;
-        right:72px;
-        bottom:44px;
-        width:72px;
-        height:170px;
-        border:12px solid #ffcf98;
-        border-bottom:0;
-        border-radius:80% 80% 0 0;
-        transform:rotate(13deg)
-      }
-      .steam:after,.steam:before {
-        content:'';
-        position:absolute;
-        width:13px;
-        height:75px;
-        border-radius:99px;
-        background:#ffcf98;
-        top:-53px
-      }
-      .steam:before {
-        left:25px;
-        transform:rotate(15deg)
-      }
-      .steam:after {
-        left:52px;
-        top:-27px;
-        transform:rotate(31deg)
-      }
-      .second-mini-hero {
-        position: relative;
-        min-height: 70vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background: linear-gradient(135deg, #EFEBE5 0%, #F9F7F4 50%, #E8E2D9 100%);
-        padding: 4rem 1.5rem;
-      }
-      .card-copy {
-        padding:24px 25px 26px
-      }
-      .card-copy small {
-        font:11px 'DM Mono',monospace;
-        color:#57736a;
-        text-transform:uppercase;
-        letter-spacing:.1em
-      }
-      .card-copy h2 {
-        font-size:24px;
-        letter-spacing:-.06em;
-        margin:8px 0
-      }
-      .card-copy p {
-        font-size:13px;
-        line-height:1.55;
-        color:#57736a;
-        margin:0 0 18px
-      }
-      .open {
-        font-size:13px;
-        font-weight:800
-      }
-      .open span {
-        color:#1d8067;
-        font-size:18px;
-        margin-left:4px
-      }
-      @media(max-width:650px) {
+        :root {
+            --ink: #10231f;
+            --ink2: #38514b;
+            --bg: #eef4ef;
+            --lime: #d8ff52;
+            --coral: #ff7c62;
+            --pine: #17453b;
+            --glass: rgba(255, 255, 255, .38);
+            --glass-b: rgba(255, 255, 255, .7);
+            --glass-s: rgba(16, 35, 31, .12);
+            --blob: .85;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --ink: #eef4ef;
+                --ink2: #b3c7bf;
+                --bg: #0a1613;
+                --glass: rgba(255, 255, 255, .07);
+                --glass-b: rgba(255, 255, 255, .22);
+                --glass-s: rgba(0, 0, 0, .4);
+                --blob: .5
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --ink: #eef4ef;
+            --ink2: #b3c7bf;
+            --bg: #0a1613;
+            --glass: rgba(255, 255, 255, .07);
+            --glass-b: rgba(255, 255, 255, .22);
+            --glass-s: rgba(0, 0, 0, .4);
+            --blob: .5
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: Manrope, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
         .wrap {
-          width:min(100% - 32px,1160px)
+            width: min(1120px, calc(100% - 40px));
+            margin: auto
         }
-        .intro,.cards {
-          grid-template-columns:1fr
+
+        .bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none
         }
-        .intro {
-          gap:15px;
-          margin-bottom:40px
+
+        .bg i {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: var(--blob);
+            animation: drift 22s ease-in-out infinite alternate
         }
+
+        .bg i:nth-child(1) {
+            width: 46vmax;
+            height: 46vmax;
+            background: var(--lime);
+            left: -12vmax;
+            top: -10vmax
+        }
+
+        .bg i:nth-child(2) {
+            width: 38vmax;
+            height: 38vmax;
+            background: var(--coral);
+            right: -10vmax;
+            top: 30vh;
+            animation-delay: -8s
+        }
+
+        .bg i:nth-child(3) {
+            width: 42vmax;
+            height: 42vmax;
+            background: #6fb59e;
+            left: 20vw;
+            bottom: -18vmax;
+            animation-delay: -14s
+        }
+
+        @keyframes drift {
+            to {
+                transform: translate(8vmax, 6vmax) scale(1.15)
+            }
+        }
+
+        .glass {
+            position: relative;
+            background: var(--glass);
+            border-radius: 28px;
+            -webkit-backdrop-filter: blur(26px) saturate(180%);
+            backdrop-filter: blur(26px) saturate(180%);
+            border: 1px solid var(--glass-b);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), inset 0 -1px 0 rgba(255, 255, 255, .12), 0 24px 60px -20px var(--glass-s)
+        }
+
+        .glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .45), rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, .2))
+        }
+
+        .glass > * {
+            position: relative
+        }
+
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(46px) scale(.96);
+            filter: blur(8px);
+            transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform .9s cubic-bezier(.2, .7, .2, 1), filter .9s;
+            transition-delay: var(--d, 0s)
+        }
+
+        .js .reveal.in {
+            opacity: 1;
+            transform: none;
+            filter: none
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .js .reveal {
+                opacity: 1;
+                transform: none;
+                filter: none;
+                transition: none
+            }
+
+            .bg i {
+                animation: none
+            }
+
+            html {
+                scroll-behavior: auto
+            }
+        }
+
+        .nav {
+            position: fixed;
+            top: calc(env(safe-area-inset-top, 0px) + 14px);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: min(920px, calc(100% - 28px));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 22px;
+            border-radius: 100px
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: -.05em;
+            display: flex;
+            align-items: center;
+            gap: 9px
+        }
+
+        .mark {
+            width: 18px;
+            height: 18px;
+            background: var(--lime);
+            border-radius: 50% 50% 50% 3px;
+            transform: rotate(-45deg);
+            box-shadow: 0 0 0 1px rgba(16, 35, 31, .2)
+        }
+
+        .tag {
+            font: 500 11px/1.2 "DM Mono", monospace;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+            color: var(--ink2)
+        }
+
         main {
-          padding:50px 0 65px
+            padding: 130px 0 60px
         }
+
+        .intro {
+            display: grid;
+            grid-template-columns:1.3fr .7fr;
+            gap: 30px;
+            margin-bottom: 46px;
+            align-items: end
+        }
+
+        h1 {
+            font-size: clamp(44px, 7vw, 80px);
+            line-height: .96;
+            letter-spacing: -.07em;
+            margin: 14px 0 0
+        }
+
+        .intro p {
+            line-height: 1.7;
+            color: var(--ink2);
+            max-width: 340px;
+            margin: 0
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px
+        }
+
+        .card {
+            display: block;
+            padding: 12px;
+            transition: transform .4s cubic-bezier(.2, .7, .2, 1)
+        }
+
+        .card:hover {
+            transform: translateY(-8px)
+        }
+
         .preview {
-          height:270px
+            height: 300px;
+            padding: 22px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px
         }
-      }
+
+        .p1 {
+            background: #f5f2e9;
+            color: #314238
+        }
+
+        .p2 {
+            background: linear-gradient(150deg, #7a2e1a, #c2562b);
+            color: #fff
+        }
+
+        .p3 {
+            background: linear-gradient(135deg, #EFEBE5, #F9F7F4 50%, #E8E2D9);
+            color: #301d17
+        }
+
+        .mini-nav {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .04em
+        }
+
+        .mini-hero {
+            position: absolute;
+            left: 22px;
+            bottom: 22px;
+            font-size: 40px;
+            letter-spacing: -.07em;
+            line-height: .94;
+            max-width: 250px;
+            font-weight: 800
+        }
+
+        .p3 .mini-hero {
+            font-size: 32px
+        }
+
+        .snow {
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border: 42px solid #92d4e3;
+            border-radius: 50%;
+            right: -105px;
+            bottom: -168px;
+            opacity: .8
+        }
+
+        .steam {
+            position: absolute;
+            right: 72px;
+            bottom: 44px;
+            width: 72px;
+            height: 170px;
+            border: 12px solid #ffcf98;
+            border-bottom: 0;
+            border-radius: 80% 80% 0 0;
+            transform: rotate(13deg)
+        }
+
+        .steam:before, .steam:after {
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 75px;
+            border-radius: 99px;
+            background: #ffcf98;
+            top: -53px
+        }
+
+        .steam:before {
+            left: 25px;
+            transform: rotate(15deg)
+        }
+
+        .steam:after {
+            left: 52px;
+            top: -27px;
+            transform: rotate(31deg)
+        }
+
+        .copy {
+            padding: 20px 14px 14px
+        }
+
+        .copy small {
+            font: 500 11px "DM Mono", monospace;
+            color: var(--ink2);
+            text-transform: uppercase;
+            letter-spacing: .1em
+        }
+
+        .copy h2 {
+            font-size: 24px;
+            letter-spacing: -.05em;
+            margin: 8px 0
+        }
+
+        .copy p {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--ink2);
+            margin: 0 0 16px
+        }
+
+        .open {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 800
+        }
+
+        .open b {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: var(--lime);
+            color: #10231f;
+            transition: transform .3s
+        }
+
+        .card:hover .open b {
+            transform: rotate(45deg)
+        }
+
+        @media (max-width: 650px) {
+            .intro {
+                grid-template-columns:1fr;
+                gap: 16px
+            }
+
+            main {
+                padding-top: 110px
+            }
+
+            .preview {
+                height: 260px
+            }
+        }
     </style>
-  </head>
-  <!-- Webpage Layout -->
-  <body>
-    <header class="wrap nav">
-      <a class="brand" href="home.html">
-        web bricks
-      </a>
-      <span class="tag">
-        Website model gallery
-      </span>
-    </header>
-    <main class="wrap">
-      <section class="intro">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="nav glass">
+    <a class="brand" href="home.html"><i class="mark"></i>web bricks</a>
+    <span class="tag">Website model gallery</span>
+</header>
+
+<main class="wrap">
+    <section class="intro reveal">
         <div>
-          <div class="tag">
-            Pick a starting point
-          </div>
-          <h1>
-            Made for the people who keep a town moving.
-          </h1>
+            <div class="tag">Pick a starting point</div>
+            <h1>Made for the people who keep a town moving.</h1>
         </div>
-        <p>
-          Two complete website directions designed around the way local businesses actually earn trust, win bookings, and welcome regulars.
-        </p>
-      </section>
-      <section class="cards">
-        <a class="card" href="model1.html" target="_blank" rel="noopener noreferrer">
-          <div class="preview">
-            <div class="mini-nav">
-              <span>
-                SUMMIT AIR
-              </span>
-              <span>
-                24/7 SERVICE
-              </span>
+        <p>Two complete website directions designed around the way local businesses actually earn trust, win bookings,
+            and welcome regulars.</p>
+    </section>
+
+    <section class="cards">
+        <a class="glass card reveal" href="model1.html" target="_blank" rel="noopener noreferrer">
+            <div class="preview p1">
+                <div class="mini-nav"><span>Juniper</span><span>Gentle kitchen</span></div>
+                <div class="mini-hero">Dinner, wine.<br>Unhurried evenings.</div>
             </div>
-            <div class="mini-hero">
-              Cool air.
-              <br>
-              Right now.
+            <div class="copy">
+                <small>Model 01 / Home services</small>
+                <h2>Air conditioning repair</h2>
+                <p>A direct, conversion-focused site for a fast, dependable HVAC business.</p>
+                <span class="open">Explore model <b>↗</b></span>
             </div>
-            <i class="snow">
-            </i>
-          </div>
-          <div class="card-copy">
-            <small>
-              Model 01 / Home services
-            </small>
-            <h2>
-              Air conditioning repair
-            </h2>
-            <p>
-              A direct, conversion-focused site for a fast, dependable HVAC business.
-            </p>
-            <span class="open">
-              Explore model
-              <span>
-                ↗
-              </span>
-            </span>
-          </div>
         </a>
-        <a class="card" href="model2.html" target="_blank" rel="noopener noreferrer">
-          <div class="preview">
-            <div class="mini-nav">
-              <span>
-                MARIGOLD
-              </span>
-              <span>
-                DINNER · DRINKS
-              </span>
+        <a class="glass card reveal" href="model2.html" target="_blank" rel="noopener noreferrer" style="--d:.12s">
+            <div class="preview p2">
+                <div class="mini-nav"><span>MARIGOLD</span><span>DINNER · DRINKS</span></div>
+                <div class="mini-hero">Come hungry.<br>Stay awhile.</div>
+                <i class="steam"></i>
             </div>
-            <div class="mini-hero">
-              Come hungry.
-              <br>
-              Stay awhile.
+            <div class="copy">
+                <small>Model 02 / Hospitality</small>
+                <h2>Neighborhood restaurant</h2>
+                <p>A warm, appetite-making home for a small restaurant with soul.</p>
+                <span class="open">Explore model <b>↗</b></span>
             </div>
-            <i class="steam">
-            </i>
-          </div>
-          <div class="card-copy">
-            <small>
-              Model 02 / Hospitality
-            </small>
-            <h2>
-              Neighborhood restaurant
-            </h2>
-            <p>
-              A warm, appetite-making home for a small restaurant with soul.
-            </p>
-            <span class="open">
-              Explore model
-              <span>
-                ↗
-              </span>
-            </span>
-          </div>
         </a>
-        <a class="card" href="model3.html" target="_blank" rel="noopener noreferrer">
-          <div class="preview">
-            <div class="mini-nav">
-              <span>
-                Villa Toscana
-              </span>
-              <span>
-                Italian Cuisine
-              </span>
+        <a class="glass card reveal" href="model3.html" target="_blank" rel="noopener noreferrer" style="--d:.24s">
+            <div class="preview p3">
+                <div class="mini-nav"><span>Villa Toscana</span><span>Italian Cuisine</span></div>
+                <div class="mini-hero">Where tradition meets quiet elegance</div>
             </div>
-            <div class="mini-hero">
-              Where tradition meets quiet elegance
+            <div class="copy">
+                <small>Model 03 / Restaurant</small>
+                <h2>Luxury restaurant</h2>
+                <p>An elegant advertisement for larger luxury restaurants.</p>
+                <span class="open">Explore model <b>↗</b></span>
             </div>
-          </div>
-          <div class="card-copy">
-            <small>
-              Model 03 / Restaurant
-            </small>
-            <h2>
-              Luxury Restaurant
-            </h2>
-            <p>
-              An elegant advertisement for larger luxury restaurants.
-            </p>
-            <span class="open">
-              Explore model
-              <span>
-                ↗
-              </span>
-            </span>
-          </div>
         </a>
-      </section>
-    </main>
-  </body>
+    </section>
+</main>
+
+<script>
+    document.documentElement.classList.add('js');
+    (function () {
+        var els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+            els.forEach(function (e) {
+                e.classList.add('in')
+            });
+            return
+        }
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target)
+                }
+            })
+        }, {threshold: .12, rootMargin: '0px 0px -5% 0px'});
+        els.forEach(function (e) {
+            io.observe(e)
+        });
+    })();
+</script>
+</body>
 </html>

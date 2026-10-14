@@ -306,7 +306,12 @@
             background: linear-gradient(100deg, var(--pine), #2f8f77);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent
+            color: transparent;
+            animation: rainbow 8s linear infinite
+        }
+
+        @keyframes rainbow {
+            to { filter: hue-rotate(360deg); }
         }
 
         @media (prefers-color-scheme: dark) {
